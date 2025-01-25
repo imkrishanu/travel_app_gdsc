@@ -6,7 +6,7 @@ final List<Map<String, dynamic>> favoritePlaceStaticData = [
     'imageUrl':
         'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/ea/ac/8a/kuta.jpg',
     'location': 'Bali, Indonesia',
-    'rating': 4,
+    'rating': 4.0,
     'isLiked': true,
     'description':
         'Kuta Beach in Bali is a lively destination with golden sands and clear waters, attracting visitors for its beautiful sunsets and consistent surf. The beach is ideal for surfing, with schools catering to all skill levels. Surrounded by bustling cafes, shops, and restaurants, Kuta offers a vibrant nightlife scene. It\'s a perfect blend of adventure, relaxation, and local culture, making it a must-visit for travelers.',

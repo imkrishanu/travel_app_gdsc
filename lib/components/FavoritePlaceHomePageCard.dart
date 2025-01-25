@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FavoritePlaceHomePageCard extends StatefulWidget {
   final String name;
   final String imageUrl;
   final String location;
+  final double rating;
 
   // Constructor to pass data to the card
   FavoritePlaceHomePageCard(
-      {required this.name, required this.imageUrl, required this.location});
+      {required this.name,
+      required this.imageUrl,
+      required this.location,
+      required this.rating});
 
   @override
   _FavoritePlaceHomePageCardState createState() =>
@@ -60,19 +65,74 @@ class _FavoritePlaceHomePageCardState extends State<FavoritePlaceHomePageCard> {
                   widget.name,
                   style: GoogleFonts.poppins(color: Colors.white, fontSize: 16),
                 ),
+                Container(
+                  width: double.infinity,
+                  height: 20,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.white,
+                        size: 14,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                        child: Text(
+                          widget.location,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 10,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.white,
-                      size: 14,
+                    RatingBar.builder(
+                      initialRating: widget.rating, // Set the rating to show
+                      minRating: 0.1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemSize: 18,
+                      ignoreGestures: true, // Disable interaction
+                      unratedColor: Colors.white,
+                      itemBuilder: (context, index) {
+                        if (index < 3.5) {
+                          // If the rating is greater than the index, make it amber
+                          return Icon(
+                            Icons.star,
+                            color: index < 3.5
+                                ? Colors.amber
+                                : Colors
+                                    .white, // Active = amber, Inactive = white
+                          );
+                        } else {
+                          return Icon(
+                            Icons.star,
+                            color:
+                                Colors.white, // The background stars are white
+                          );
+                        }
+                      },
+                      onRatingUpdate: (double value) {},
+                    ),
+                    SizedBox(
+                      width: 8,
                     ),
                     Text(
-                      widget.location,
+                      widget.rating.toString(),
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
-                          color: Colors.white, fontSize: 10),
-                    )
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ],
                 )
               ],
