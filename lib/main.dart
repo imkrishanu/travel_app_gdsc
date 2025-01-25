@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/create_account_page.dart';
 import 'package:travel_app/pages/home_page.dart';
 import 'package:travel_app/pages/login_page.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home : LoginPage(), // This trailing comma makes auto-formatting nicer for build methods.
+      home : CreateAccountPage(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
