@@ -218,10 +218,32 @@ class _HomePageState extends State<HomePage> {
                         name: favoritePlaceStaticData[index]['name'],
                         imageUrl: favoritePlaceStaticData[index]['imageUrl'],
                         location: favoritePlaceStaticData[index]['location'],
+                        rating:
+                            favoritePlaceStaticData[index]['rating'].toDouble(),
                       );
                     },
                     itemCount: favoritePlaceStaticData.length,
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      overflow: TextOverflow.ellipsis,
+                      "Popular Package",
+                      style: GoogleFonts.outfit(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "See All",
+                      style: GoogleFonts.outfit(
+                        fontSize: 16,
+                        color: const Color.fromARGB(255, 165, 165, 165),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
