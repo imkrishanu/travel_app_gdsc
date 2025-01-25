@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/components/TextField.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class CreateAccountPage extends StatelessWidget {
+  CreateAccountPage ({super.key});
 
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController newusernameController = TextEditingController();
+  TextEditingController newpasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
