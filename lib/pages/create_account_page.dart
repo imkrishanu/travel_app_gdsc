@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/components/TextField.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,8 +7,50 @@ import 'package:travel_app/pages/login_page.dart';
 class CreateAccountPage extends StatelessWidget {
   CreateAccountPage({super.key});
 
-  TextEditingController newusernameController = TextEditingController();
+  TextEditingController newemailController = TextEditingController();
   TextEditingController newpasswordController = TextEditingController();
+
+  Future<void> _createAccount(context) async {
+    try {
+      final email = newemailController.text.trim();
+      final password = newpasswordController.text.trim();
+
+      // Create user in Firebase
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      // Save username to Firestore (optional, depends on your use case)
+      //FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
+      //   'username': _usernameController.text.trim(),
+      // });
+
+      // Navigate back to login page after account creation
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = "An error occurred";
+
+      // Handle Firebase registration error codes
+      if (e.code == 'email-already-in-use') {
+        errorMessage = "The email is already in use.";
+      }
+
+      // Show the error message
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Account Creation Error"),
+          content: Text(errorMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text("OK"),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +82,7 @@ class CreateAccountPage extends StatelessWidget {
               const SizedBox(height: 135),
               // Email
               Textfield(
-                  controller: newusernameController,
+                  controller: newemailController,
                   hintText: 'Email/username',
                   obscureText: false,
                   labelText: 'Email/username'),
@@ -56,10 +99,7 @@ class CreateAccountPage extends StatelessWidget {
 
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginPage()));
+                  _createAccount(context);
                 },
                 child: Container(
                   margin: EdgeInsets.all(18),

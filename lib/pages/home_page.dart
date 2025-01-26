@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
-
+  void onTabChange()
   //pages to display
   final List<Widget> _pages = [
     const TripsPage(),
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       bottomNavigationBar: BottomNavBar(
-          // onTabChange: (index) => navigateBottomBar(index),
+          //onTabChange: (index) => navigateBottomBar(index),
           ),
       body: SafeArea(
         child: SingleChildScrollView(
