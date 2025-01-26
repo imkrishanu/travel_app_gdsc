@@ -208,7 +208,25 @@ class _HomeComponentState extends State<HomeComponent> {
                     ),
                   ],
                 ),
-                // Display the selected page, // Display the page based on selected index
+                const SizedBox(height: 18),
+                // Category ListView
+                Container(
+                  height: 80,
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return CategoryHomePageCard(
+                        name: categoryStaticData1[index]['name'],
+                        iconUrl: categoryStaticData1[index]['iconUrl'],
+                      );
+                    },
+                    itemCount: categoryStaticData1.length,
+                  ),
+                ),
+                const SizedBox(height: 18),
+                // Favorite Places Section
+// Display the selected page, // Display the page based on selected index
               ],
             ),
           ),

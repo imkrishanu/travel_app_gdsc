@@ -24,3 +24,29 @@ final List<Map<String, dynamic>> categoryStaticData = [
     'order': 4
   },
 ];
+final List<Map<String, dynamic>> categoryStaticData1 = [
+  {
+    'id': 1,
+    'name': 'Coming Soon',
+    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/874/874306.png',
+    'order': 1
+  },
+  {
+    'id': 2,
+    'name': 'Coming Soon',
+    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/874/874306.png',
+    'order': 2
+  },
+  {
+    'id': 3,
+    'name': 'Coming Soon',
+    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/874/874306.png',
+    'order': 3
+  },
+  {
+    'id': 4,
+    'name': 'Coming Soon',
+    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/874/874306.png',
+    'order': 4
+  },
+];

@@ -10,6 +10,7 @@ class TripsPage extends StatefulWidget {
 class _TripsPageState extends State<TripsPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Your Trips here....'),);
+    return Center(child: Text('Trips'
+    ,style: TextStyle(fontSize: 24),),);
   }
 }
