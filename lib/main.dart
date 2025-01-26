@@ -3,6 +3,7 @@ import 'package:travel_app/pages/create_account_page.dart';
 import 'package:travel_app/pages/home_page.dart';
 import 'package:travel_app/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:travel_app/pages/profile_page.dart';
 import 'firebase_options.dart';
 
 void main()async {

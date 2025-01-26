@@ -35,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
       );
       //signup ke baad hi loading ko ek laat maaro
       Navigator.pop(context);
-      print("helo");
       Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),);
