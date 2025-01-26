@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/components/Bottom_Nav_Bar.dart';
@@ -10,7 +11,9 @@ import 'package:travel_app/pages/trips_page.dart';
 import 'package:travel_app/pages/wishlist_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -65,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           overflow: TextOverflow.ellipsis,
-                          "Hello, Kutus!",
+                          "Hello, Kutus" ,
                           style: GoogleFonts.outfit(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -218,10 +221,32 @@ class _HomePageState extends State<HomePage> {
                         name: favoritePlaceStaticData[index]['name'],
                         imageUrl: favoritePlaceStaticData[index]['imageUrl'],
                         location: favoritePlaceStaticData[index]['location'],
+                        rating:
+                            favoritePlaceStaticData[index]['rating'].toDouble(),
                       );
                     },
                     itemCount: favoritePlaceStaticData.length,
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      overflow: TextOverflow.ellipsis,
+                      "Popular Package",
+                      style: GoogleFonts.outfit(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "See All",
+                      style: GoogleFonts.outfit(
+                        fontSize: 16,
+                        color: const Color.fromARGB(255, 165, 165, 165),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

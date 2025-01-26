@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Textfield extends StatelessWidget {
   final controller;
@@ -24,7 +25,7 @@ class Textfield extends StatelessWidget {
                 obscureText: obscureText,
                 decoration: InputDecoration(
                   labelText: labelText,
-                  labelStyle: TextStyle(color: Colors.black),
+                  labelStyle: GoogleFonts.outfit(color: Colors.black),
                   enabledBorder: OutlineInputBorder(borderRadius:
                   BorderRadius.circular(22),
                     borderSide: BorderSide(color: Colors.white),
